@@ -1,11 +1,11 @@
 // Copyright 2020 Gabor Kokeny and contributors
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -92,7 +92,7 @@ import com.vaadin.flow.shared.Registration;
 import elemental.json.JsonType;
 
 @Tag("leaflet-map")
-@NpmPackage(value = "leaflet", version = "1.6.0")
+@NpmPackage(value = "leaflet", version = "1.7.1")
 @JsModule("./leaflet-map.js")
 @JsModule("leaflet/dist/leaflet-src.js")
 @CssImport(value = "leaflet/dist/leaflet.css", themeFor = "leaflet-map")
@@ -124,7 +124,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Generic event handler
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -140,7 +140,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when a layer is changed through the layer control.
-     * 
+     *
      * @param layerId
      *            the id of the layer that was added or removed.
      * @param eventType
@@ -156,7 +156,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when any mouse event fired on the layer
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -180,7 +180,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when the layer is moved via setLatLng or by dragging.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -203,7 +203,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
     /**
      * Fired when the user presses a key from the keyboard while the map is
      * focused
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -222,7 +222,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when geolocation (using the locate method) went successfully.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -243,7 +243,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when geolocation (using the locate method) failed.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -260,7 +260,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when a new layer is added to the map, or removed from the map.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -277,7 +277,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when a tile event fired on map
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -296,7 +296,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when there is an error loading a tile.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -315,7 +315,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when the map is resized.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -333,7 +333,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when a popup is opened or closed in the map
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -350,7 +350,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when a tooltip is opened or closed in the map.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -367,7 +367,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Fired when the user stops dragging the layer.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -385,7 +385,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
     /**
      * Fired at least once per zoom animation. For continuous zoom, like pinch
      * zooming, fired once per frame during zoom.
-     * 
+     *
      * @param layerId
      *            the id of the layer where the event occurred
      * @param eventType
@@ -403,7 +403,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * fire the given leaflet event
-     * 
+     *
      * @param layerId
      *            the layer where the event occurred
      * @param eventType
@@ -418,7 +418,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Returns the layer with the given internal ID.
-     * 
+     *
      * @param layerId
      *            the id of the layer to be looking for
      * @return the layer with the given internal ID
@@ -433,7 +433,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Adds the given layer to the map
-     * 
+     *
      * @param layer
      *            the layer to add
      */
@@ -445,7 +445,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Removes the given layer from the map.
-     * 
+     *
      * @param layer
      *            the layer to remove
      */
@@ -461,7 +461,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Adds the given control to the map
-     * 
+     *
      * @param leafletControl
      *            the control to add
      */
@@ -471,7 +471,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Removes the given control from the map
-     * 
+     *
      * @param leafletControl
      *            the control to remove
      */
@@ -482,7 +482,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
     /**
      * Fired when the map gets initialized with a view (center and zoom) and at
      * least one layer, or immediately if it's already initialized.
-     * 
+     *
      * @param listener
      *            the listener to call when the event occurs, not {@code null}
      * @return a handle that can be used for removing the listener
@@ -589,7 +589,7 @@ public final class LeafletMap extends PolymerTemplate<LeafletModel> implements M
 
     /**
      * Map event which fired when map gets initialized on client side
-     * 
+     *
      * @author <strong>Gabor Kokeny</strong> Email:
      *         <a href='mailto=kokeny19@gmail.com'>kokeny19@gmail.com</a>
      * @since 2020-03-16

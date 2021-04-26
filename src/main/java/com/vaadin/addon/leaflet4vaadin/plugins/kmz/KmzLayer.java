@@ -11,17 +11,17 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 /**
  * <h3>KMZ file loader for Leaflet Maps</h3>
- * 
+ *
  * Web component: <a href=
  * "https://www.npmjs.com/package/leaflet-kmz">https://www.npmjs.com/package/leaflet-kmz</a><br>
  * <br>
- * 
+ *
  * @author <strong>Gabor Kokeny</strong> Email:
  *         <a href='mailto=kokeny19@gmail.com'>kokeny19@gmail.com</a>
  * @since 2020-07-23
  * @version 1.0
  */
-@NpmPackage(value = "leaflet-kmz", version = "1.0.4")
+@NpmPackage(value = "leaflet-kmz", version = "1.0.6")
 @JsModule("leaflet-kmz/dist/leaflet-kmz-src.js")
 public class KmzLayer extends Layer {
 
