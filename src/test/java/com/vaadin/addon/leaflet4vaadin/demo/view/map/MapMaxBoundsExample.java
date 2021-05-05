@@ -1,11 +1,11 @@
 // Copyright 2020 Gabor Kokeny and contributors
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,23 +27,23 @@ import com.vaadin.flow.router.Route;
 @Route(value = "map/max-bounds", layout = LeafletDemoApp.class)
 public class MapMaxBoundsExample extends ExampleContainer {
 
-	@Override
-	protected void initDemo() {
+  @Override
+  protected void initDemo() {
 
-		final MapOptions options = new DefaultMapOptions();
-		options.setCenter(new LatLng(47.070121823, 19.204101562500004));
-		options.setZoom(7);
-		final LeafletMap leafletMap = new LeafletMap(options);
-		leafletMap.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+    final MapOptions options = new DefaultMapOptions();
+    options.setCenter(new LatLng(47.070121823, 19.204101562500004));
+    options.setZoom(7);
+    final LeafletMap leafletMap = new LeafletMap(options);
+    leafletMap.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
 
-		leafletMap.whenReady((e) -> {
-			leafletMap.getBounds().thenAccept((bounds) -> {
-				System.out.println("Current bounds: " + bounds);
-				leafletMap.setMaxBounds(bounds);
-			});
-		});
+    leafletMap.whenReady((e) -> {
+      leafletMap.getBounds().thenAccept((bounds) -> {
+        System.out.println("Current bounds: " + bounds);
+        leafletMap.setMaxBounds(bounds);
+      });
+    });
 
-		addToContent(leafletMap);
-	}
+    addToContent(leafletMap);
+  }
 
 }

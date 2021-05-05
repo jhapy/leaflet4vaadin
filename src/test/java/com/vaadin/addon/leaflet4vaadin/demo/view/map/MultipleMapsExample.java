@@ -19,38 +19,38 @@ import com.vaadin.flow.router.Route;
 @Route(value = "map/multiple", layout = LeafletDemoApp.class)
 public class MultipleMapsExample extends ExampleContainer {
 
-    private static Icon CUSTOM_ICON = new Icon("images/marker-icon-demo.png", 41);
-    
-    @Override
-    protected void initDemo() {
-        MapOptions options = new DefaultMapOptions();
-        options.setCenter(latlng(47.070121823, 19.2041015625));
-        options.setZoom(7);
-        options.setPreferCanvas(true);
+  private static Icon CUSTOM_ICON = new Icon("images/marker-icon-demo.png", 41);
 
-        LeafletMap leafletMapLeft = new LeafletMap(options);
-        leafletMapLeft.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
-        leafletMapLeft.addLayer(createRandomMarkers(Icon.DEFAULT_ICON, 30));
+  @Override
+  protected void initDemo() {
+    MapOptions options = new DefaultMapOptions();
+    options.setCenter(latlng(47.070121823, 19.2041015625));
+    options.setZoom(7);
+    options.setPreferCanvas(true);
 
-        LeafletMap leafletMapRight = new LeafletMap(options);
-        leafletMapRight.setBaseUrl("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png");
-        leafletMapRight.addLayer(createRandomMarkers(CUSTOM_ICON, 30));
+    LeafletMap leafletMapLeft = new LeafletMap(options);
+    leafletMapLeft.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+    leafletMapLeft.addLayer(createRandomMarkers(Icon.DEFAULT_ICON, 30));
 
-        HorizontalLayout horizontalLayout = new HorizontalLayout();
-        horizontalLayout.setSizeFull();
-        horizontalLayout.add(leafletMapLeft, leafletMapRight);
-        addToContent(horizontalLayout);
-    }
+    LeafletMap leafletMapRight = new LeafletMap(options);
+    leafletMapRight.setBaseUrl("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png");
+    leafletMapRight.addLayer(createRandomMarkers(CUSTOM_ICON, 30));
 
-    private LayerGroup createRandomMarkers(Icon icon, int limit) {
-        LayerGroup layerGroup = new LayerGroup();
-        range(0, limit).forEach((i) -> {
-            double lat = (Math.random() * 4) + 45;
-            double lon = (Math.random() * 7) + 16;
-            Marker marker = new Marker(latlng(lat, lon));
-            marker.setIcon(icon);
-            marker.addTo(layerGroup);
-        });
-        return layerGroup;
-    }
+    HorizontalLayout horizontalLayout = new HorizontalLayout();
+    horizontalLayout.setSizeFull();
+    horizontalLayout.add(leafletMapLeft, leafletMapRight);
+    addToContent(horizontalLayout);
+  }
+
+  private LayerGroup createRandomMarkers(Icon icon, int limit) {
+    LayerGroup layerGroup = new LayerGroup();
+    range(0, limit).forEach((i) -> {
+      double lat = (Math.random() * 4) + 45;
+      double lon = (Math.random() * 7) + 16;
+      Marker marker = new Marker(latlng(lat, lon));
+      marker.setIcon(icon);
+      marker.addTo(layerGroup);
+    });
+    return layerGroup;
+  }
 }

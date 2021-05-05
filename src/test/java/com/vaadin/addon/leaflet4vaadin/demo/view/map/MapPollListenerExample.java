@@ -1,11 +1,11 @@
 // Copyright 2020 Gabor Kokeny and contributors
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -34,92 +34,93 @@ import com.vaadin.flow.router.Route;
 @Route(value = "map/polling", layout = LeafletDemoApp.class)
 public class MapPollListenerExample extends ExampleContainer {
 
-	private static final Integer DEFAULT_POLL_INTERVAL = 3000;
+  private static final Integer DEFAULT_POLL_INTERVAL = 3000;
 
-	private Integer radius;
-	private Integer circleCount;
-	
-	private LayerGroup layerGroup;
+  private Integer radius;
+  private Integer circleCount;
 
-	@Override
-	protected void initDemo() {
+  private LayerGroup layerGroup;
 
-		MapOptions options = new DefaultMapOptions();
-		options.setCenter(latlng(47.070121823, 19.2041015625));
-		options.setZoom(7);
-		options.setPreferCanvas(true);
-		LeafletMap leafletMap = new LeafletMap(options);
-		leafletMap.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+  @Override
+  protected void initDemo() {
 
-		this.radius = 10;
-		this.circleCount = 50;
-        this.layerGroup = new LayerGroup();
+    MapOptions options = new DefaultMapOptions();
+    options.setCenter(latlng(47.070121823, 19.2041015625));
+    options.setZoom(7);
+    options.setPreferCanvas(true);
+    LeafletMap leafletMap = new LeafletMap(options);
+    leafletMap.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
 
-		refresh(leafletMap);
-		
-		createFormControls();
+    this.radius = 10;
+    this.circleCount = 50;
+    this.layerGroup = new LayerGroup();
 
-		UI.getCurrent().setPollInterval(DEFAULT_POLL_INTERVAL);
-		UI.getCurrent().addPollListener((pollEvent) -> refresh(leafletMap));
+    refresh(leafletMap);
 
-		addToContent(leafletMap);
-	}
+    createFormControls();
 
-	private void refresh(LeafletMap leafletMap) {
-	    this.layerGroup.clearLayers();
-		for (int i = 0; i < circleCount; i++) {
-			int radius = (int) (Math.random() * this.radius);
-			double lat = (Math.random() * 4) + 45;
-			double lon = (Math.random() * 7) + 16;
-			CircleMarker circleMarker = new CircleMarker(latlng(lat, lon), radius);
-			circleMarker.setWeight(0);
-			circleMarker.setFillOpacity(Math.random());
-			circleMarker.addTo(layerGroup);
-		}
-		layerGroup.addTo(leafletMap);
-	}
+    UI.getCurrent().setPollInterval(DEFAULT_POLL_INTERVAL);
+    UI.getCurrent().addPollListener((pollEvent) -> refresh(leafletMap));
 
-	private void createFormControls() {
-		FormLayout form = new FormLayout();
-		Checkbox enablePolling = new Checkbox();
-		enablePolling.setValue(true);
-		enablePolling.addValueChangeListener((event) -> {
-			if (event.getValue()) {
-				UI.getCurrent().setPollInterval(DEFAULT_POLL_INTERVAL);
-			} else {
-				UI.getCurrent().setPollInterval(-1);
-			}
-		});
-		form.addFormItem(enablePolling, "Enable/disable polling");
+    addToContent(leafletMap);
+  }
 
-		NumberField weight = new NumberField();
-		weight.setValue(DEFAULT_POLL_INTERVAL.doubleValue());
-		weight.setHasControls(true);
-		weight.setMin(300);
-		weight.setMax(5000);
-		weight.setWidthFull();
-		weight.addValueChangeListener((event) -> UI.getCurrent().setPollInterval(event.getValue().intValue()));
-		form.addFormItem(weight, "Poll interval");
+  private void refresh(LeafletMap leafletMap) {
+    this.layerGroup.clearLayers();
+    for (int i = 0; i < circleCount; i++) {
+      int radius = (int) (Math.random() * this.radius);
+      double lat = (Math.random() * 4) + 45;
+      double lon = (Math.random() * 7) + 16;
+      CircleMarker circleMarker = new CircleMarker(latlng(lat, lon), radius);
+      circleMarker.setWeight(0);
+      circleMarker.setFillOpacity(Math.random());
+      circleMarker.addTo(layerGroup);
+    }
+    layerGroup.addTo(leafletMap);
+  }
 
-		NumberField radius = new NumberField();
-		radius.setValue(this.radius.doubleValue());
-		radius.setHasControls(true);
-		radius.setMin(1);
-		radius.setMax(100);
-		radius.setWidthFull();
-		radius.addValueChangeListener((event) -> this.radius = event.getValue().intValue());
-		form.addFormItem(radius, "Max radius");
+  private void createFormControls() {
+    FormLayout form = new FormLayout();
+    Checkbox enablePolling = new Checkbox();
+    enablePolling.setValue(true);
+    enablePolling.addValueChangeListener((event) -> {
+      if (event.getValue()) {
+        UI.getCurrent().setPollInterval(DEFAULT_POLL_INTERVAL);
+      } else {
+        UI.getCurrent().setPollInterval(-1);
+      }
+    });
+    form.addFormItem(enablePolling, "Enable/disable polling");
 
-		NumberField circleCount = new NumberField();
-		circleCount.setValue(this.circleCount.doubleValue());
-		circleCount.setHasControls(true);
-		circleCount.setMin(2);
-		circleCount.setMax(300);
-		circleCount.setWidthFull();
-		circleCount.addValueChangeListener((event) -> this.circleCount = event.getValue().intValue());
-		form.addFormItem(circleCount, "Number of circles");
+    NumberField weight = new NumberField();
+    weight.setValue(DEFAULT_POLL_INTERVAL.doubleValue());
+    weight.setHasControls(true);
+    weight.setMin(300);
+    weight.setMax(5000);
+    weight.setWidthFull();
+    weight.addValueChangeListener(
+        (event) -> UI.getCurrent().setPollInterval(event.getValue().intValue()));
+    form.addFormItem(weight, "Poll interval");
 
-		addToSidebar(form);
-	}
+    NumberField radius = new NumberField();
+    radius.setValue(this.radius.doubleValue());
+    radius.setHasControls(true);
+    radius.setMin(1);
+    radius.setMax(100);
+    radius.setWidthFull();
+    radius.addValueChangeListener((event) -> this.radius = event.getValue().intValue());
+    form.addFormItem(radius, "Max radius");
+
+    NumberField circleCount = new NumberField();
+    circleCount.setValue(this.circleCount.doubleValue());
+    circleCount.setHasControls(true);
+    circleCount.setMin(2);
+    circleCount.setMax(300);
+    circleCount.setWidthFull();
+    circleCount.addValueChangeListener((event) -> this.circleCount = event.getValue().intValue());
+    form.addFormItem(circleCount, "Number of circles");
+
+    addToSidebar(form);
+  }
 
 }

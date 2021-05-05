@@ -1,8 +1,8 @@
 Nowadays I'm very busy, unfortunately, I have no enough time to enhance this awesome Vaadin add-on. But its source code is available on GitHub so you can contribute if you have a feature request. Currently, this addon may have a lot of bugs so I don't recommend using this in a production environment. Of course, if you create a pull request on GitHub I will merge and release it if you want. Thank you for your understanding.
 
 
-![Java CI with Maven](https://github.com/Gubancs/leaflet4vaadin/workflows/Java%20CI%20with%20Maven/badge.svg)
-![Vaadin Directory](https://github.com/Gubancs/leaflet4vaadin/workflows/Vaadin%20Directory/badge.svg)
+![Java CI with Maven](https://github.com/jhapy/leaflet4vaadin/workflows/Java%20CI%20with%20Maven/badge.svg)
+![Vaadin Directory](https://github.com/jhapy/leaflet4vaadin/workflows/Vaadin%20Directory/badge.svg)
 
 [![Published on vaadin.com/directory](https://img.shields.io/badge/Vaadin%20Directory-published-blue.svg?colorB=00b4f0)](https://vaadin.com/directory/component/leaflet4vaadin)
 [![Star on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/leaflet4vaadin.svg)](https://vaadin.com/directory/component/leaflet4vaadin)

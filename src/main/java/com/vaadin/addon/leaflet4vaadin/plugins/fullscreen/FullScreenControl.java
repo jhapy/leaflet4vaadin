@@ -11,24 +11,23 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 /**
  * <h3>Leaflet.Control.FullScreen</h3>
  *
- * Web component: <a href=
- * "https://www.npmjs.com/package/leaflet.fullscreen">https://www.npmjs.com/package/leaflet.fullscreen</a><br>
+ * Web component: <a href= "https://www.npmjs.com/package/leaflet.fullscreen">https://www.npmjs.com/package/leaflet.fullscreen</a><br>
  * <br>
  *
  * Simple plugin for Leaflet that adds fullscreen button to your maps.<br>
  * <br>
  *
  *
- * If your map have a zoomControl the fullscreen button will be added at the
- * bottom of this one.<br>
+ * If your map have a zoomControl the fullscreen button will be added at the bottom of this
+ * one.<br>
  * <br>
  *
- * If your map doesn't have a zoomContron the fullscreen button will be added to
- * topleft corner of the map (same as the zoomcontrol).<br>
+ * If your map doesn't have a zoomContron the fullscreen button will be added to topleft corner of
+ * the map (same as the zoomcontrol).<br>
  * <br>
  *
- * If you want to use the plugin on a map embedded in an iframe, don't forget to
- * set allowfullscreen attribute on your iframe.<br>
+ * If you want to use the plugin on a map embedded in an iframe, don't forget to set allowfullscreen
+ * attribute on your iframe.<br>
  * <br>
  *
  * <h3>FullScreen options</h3>
@@ -62,89 +61,88 @@ import com.vaadin.flow.component.dependency.NpmPackage;
  * fullScreenControl.addTo(leafletMap);
  * </pre>
  *
- *
  * @author <strong>Gabor Kokeny</strong> Email:
- *         <a href='mailto=kokeny19@gmail.com'>kokeny19@gmail.com</a>
- * @since 2020-05-26
+ * <a href='mailto=kokeny19@gmail.com'>kokeny19@gmail.com</a>
  * @version 1.0
  * @see LeafletControl
+ * @since 2020-05-26
  */
 @NpmPackage(value = "leaflet.fullscreen", version = "2.0.0")
 @JsModule("leaflet.fullscreen/Control.FullScreen.js")
 @CssImport(value = "leaflet.fullscreen/Control.FullScreen.css", themeFor = "leaflet-map")
 public class FullScreenControl extends LeafletControl {
 
-    private static final long serialVersionUID = 5799278525370536625L;
-    private String title = "Full Screen";
-    private String titleCancel = "Exit Full Screen";
-    private String content = null;
-    private boolean forceSeparateButton = false;
-    private boolean forcePseudoFullscreen = false;
-    private boolean fullscreenElement = false;
+  private static final long serialVersionUID = 5799278525370536625L;
+  private String title = "Full Screen";
+  private String titleCancel = "Exit Full Screen";
+  private String content = null;
+  private boolean forceSeparateButton = false;
+  private boolean forcePseudoFullscreen = false;
+  private boolean fullscreenElement = false;
 
-    public static enum FullScreenEventType implements LeafletEventType {
-        enterFullscreen, exitFullscreen;
+  public static enum FullScreenEventType implements LeafletEventType {
+    enterFullscreen, exitFullscreen;
 
-        static {
-            EventTypeRegistry.register(FullScreenEventType.class);
-        }
+    static {
+      EventTypeRegistry.register(FullScreenEventType.class);
     }
+  }
 
-    public FullScreenControl() {
-        super("fullscreen");
-        setPosition(ControlPosition.topleft);
-    }
+  public FullScreenControl() {
+    super("fullscreen");
+    setPosition(ControlPosition.topleft);
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public String getTitleCancel() {
-        return titleCancel;
-    }
+  public String getTitleCancel() {
+    return titleCancel;
+  }
 
-    public void setTitleCancel(String titleCancel) {
-        this.titleCancel = titleCancel;
-    }
+  public void setTitleCancel(String titleCancel) {
+    this.titleCancel = titleCancel;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    public boolean isForceSeparateButton() {
-        return forceSeparateButton;
-    }
+  public boolean isForceSeparateButton() {
+    return forceSeparateButton;
+  }
 
-    public void setForceSeparateButton(boolean forceSeparateButton) {
-        this.forceSeparateButton = forceSeparateButton;
-    }
+  public void setForceSeparateButton(boolean forceSeparateButton) {
+    this.forceSeparateButton = forceSeparateButton;
+  }
 
-    public boolean isForcePseudoFullscreen() {
-        return forcePseudoFullscreen;
-    }
+  public boolean isForcePseudoFullscreen() {
+    return forcePseudoFullscreen;
+  }
 
-    public void setForcePseudoFullscreen(boolean forcePseudoFullscreen) {
-        this.forcePseudoFullscreen = forcePseudoFullscreen;
-    }
+  public void setForcePseudoFullscreen(boolean forcePseudoFullscreen) {
+    this.forcePseudoFullscreen = forcePseudoFullscreen;
+  }
 
-    public boolean isFullscreenElement() {
-        return fullscreenElement;
-    }
+  public boolean isFullscreenElement() {
+    return fullscreenElement;
+  }
 
-    public void setFullscreenElement(boolean fullscreenElement) {
-        this.fullscreenElement = fullscreenElement;
-    }
+  public void setFullscreenElement(boolean fullscreenElement) {
+    this.fullscreenElement = fullscreenElement;
+  }
 
-    public static WithFullScreenControl wrap(LeafletMap leafletMap) {
-        return new LeafletMapFullScreenAdapter(leafletMap);
-    }
+  public static WithFullScreenControl wrap(LeafletMap leafletMap) {
+    return new LeafletMapFullScreenAdapter(leafletMap);
+  }
 
 }

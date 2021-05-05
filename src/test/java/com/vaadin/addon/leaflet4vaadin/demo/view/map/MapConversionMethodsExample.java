@@ -1,11 +1,11 @@
 // Copyright 2020 Gabor Kokeny and contributors
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -29,63 +29,64 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Map conversion methods")
 @Route(value = "map/conversion", layout = LeafletDemoApp.class)
 public class MapConversionMethodsExample extends ExampleContainer {
-	private static final long serialVersionUID = -3659860383467926963L;
 
-	private TextField latitude;
-	private TextField longitude;
-	private TextField locationX;
-	private TextField locationY;
+  private static final long serialVersionUID = -3659860383467926963L;
 
-	private LeafletMap leafletMap;
+  private TextField latitude;
+  private TextField longitude;
+  private TextField locationX;
+  private TextField locationY;
 
-	@Override
-	protected void initDemo() {
-		FormLayout form = new FormLayout();
-		latitude = createTextField(form, "Latitude");
-		longitude = createTextField(form, "Longitude");
-		locationX = createTextField(form, "Location X (pixels):");
-		locationY = createTextField(form, "Location Y (pixels):");
-		addToSidebar(form);
+  private LeafletMap leafletMap;
 
-		MapOptions options = new DefaultMapOptions();
-		options.setCenter(new LatLng(47.070121823, 19.2041015625));
-		options.setZoom(7);
-		leafletMap = new LeafletMap(options);
-		leafletMap.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+  @Override
+  protected void initDemo() {
+    FormLayout form = new FormLayout();
+    latitude = createTextField(form, "Latitude");
+    longitude = createTextField(form, "Longitude");
+    locationX = createTextField(form, "Location X (pixels):");
+    locationY = createTextField(form, "Location Y (pixels):");
+    addToSidebar(form);
 
-		Marker marker = new Marker(options.getCenter());
-		marker.bindTooltip("Just click on map to change my location.");
-		marker.addTo(leafletMap);
+    MapOptions options = new DefaultMapOptions();
+    options.setCenter(new LatLng(47.070121823, 19.2041015625));
+    options.setZoom(7);
+    leafletMap = new LeafletMap(options);
+    leafletMap.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
 
-		leafletMap.whenReady((event) -> {
-			updateMarkerPosition(marker, options.getCenter());
-		});
+    Marker marker = new Marker(options.getCenter());
+    marker.bindTooltip("Just click on map to change my location.");
+    marker.addTo(leafletMap);
 
-		leafletMap.onClick((event) -> {
-			updateMarkerPosition(marker, event.getLatLng());
-		});
+    leafletMap.whenReady((event) -> {
+      updateMarkerPosition(marker, options.getCenter());
+    });
 
-		addToContent(leafletMap);
-	}
+    leafletMap.onClick((event) -> {
+      updateMarkerPosition(marker, event.getLatLng());
+    });
 
-	private void updateMarkerPosition(Marker marker, LatLng latLng) {
-		latitude.setValue(String.valueOf(latLng.getLat()));
-		longitude.setValue(String.valueOf(latLng.getLng()));
+    addToContent(leafletMap);
+  }
 
-		leafletMap.latLngToContainerPoint(latLng).thenAccept((result) -> {
-			locationX.setValue(String.valueOf(result.getX()));
-			locationY.setValue(String.valueOf(result.getY()));
-		});
+  private void updateMarkerPosition(Marker marker, LatLng latLng) {
+    latitude.setValue(String.valueOf(latLng.getLat()));
+    longitude.setValue(String.valueOf(latLng.getLng()));
 
-		marker.setLatLng(latLng);
-	}
+    leafletMap.latLngToContainerPoint(latLng).thenAccept((result) -> {
+      locationX.setValue(String.valueOf(result.getX()));
+      locationY.setValue(String.valueOf(result.getY()));
+    });
 
-	private static TextField createTextField(FormLayout form, String label) {
-		TextField textField = new TextField();
-		textField.setReadOnly(true);
-		textField.setWidthFull();
-		form.addFormItem(textField, label);
-		return textField;
-	}
+    marker.setLatLng(latLng);
+  }
+
+  private static TextField createTextField(FormLayout form, String label) {
+    TextField textField = new TextField();
+    textField.setReadOnly(true);
+    textField.setWidthFull();
+    form.addFormItem(textField, label);
+    return textField;
+  }
 
 }

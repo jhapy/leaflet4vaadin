@@ -1,11 +1,11 @@
 // Copyright 2020 Gabor Kokeny and contributors
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,177 +14,176 @@
 
 package com.vaadin.addon.leaflet4vaadin.plugins.markercluster;
 
-import java.io.Serializable;
-
 import com.vaadin.addon.leaflet4vaadin.layer.vectors.PathOptions;
+import java.io.Serializable;
 
 /**
  * Possible {@link MarkerClusterGroup} options
- * 
+ *
  * <ul>
  * <li><b>minOpacity</b> -</li>
  * </ul>
  * *
- * 
+ *
  * @author <strong>Gabor Kokeny</strong> Email:
- *         <a href='mailto=kokeny19@gmail.com'>kokeny19@gmail.com</a>
- * @since 2020-05-25
+ * <a href='mailto=kokeny19@gmail.com'>kokeny19@gmail.com</a>
  * @version 1.0
  * @see MarkerClusterGroup
+ * @since 2020-05-25
  */
 public class MarkerClusterOptions implements Serializable {
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 6006827958359411349L;
+  /**
+   *
+   */
+  private static final long serialVersionUID = 6006827958359411349L;
 
-    private int maxClusterRadius = 80;
-    private String clusterPane = "markerPane";
+  private int maxClusterRadius = 80;
+  private String clusterPane = "markerPane";
 
-    private boolean spiderfyOnMaxZoom = true;
-    private boolean showCoverageOnHover = true;
-    private boolean zoomToBoundsOnClick = true;
-    private boolean singleMarkerMode = false;
+  private boolean spiderfyOnMaxZoom = true;
+  private boolean showCoverageOnHover = true;
+  private boolean zoomToBoundsOnClick = true;
+  private boolean singleMarkerMode = false;
 
-    private Integer disableClusteringAtZoom = null;
-    private boolean removeOutsideVisibleBounds = true;
-    private boolean animate = true;
-    private boolean animateAddingMarkers = false;
-    private double spiderfyDistanceMultiplier = 1;
-    private PathOptions spiderLegPolylineOptions;
+  private Integer disableClusteringAtZoom = null;
+  private boolean removeOutsideVisibleBounds = true;
+  private boolean animate = true;
+  private boolean animateAddingMarkers = false;
+  private double spiderfyDistanceMultiplier = 1;
+  private PathOptions spiderLegPolylineOptions;
 
-    private boolean chunkedLoading = false;
-    private int chunkInterval = 200;
-    private int chunkDelay = 50;
-    private PathOptions polygonOptions;
+  private boolean chunkedLoading = false;
+  private int chunkInterval = 200;
+  private int chunkDelay = 50;
+  private PathOptions polygonOptions;
 
-    public int getMaxClusterRadius() {
-        return maxClusterRadius;
-    }
+  public int getMaxClusterRadius() {
+    return maxClusterRadius;
+  }
 
-    public void setMaxClusterRadius(int maxClusterRadius) {
-        this.maxClusterRadius = maxClusterRadius;
-    }
+  public void setMaxClusterRadius(int maxClusterRadius) {
+    this.maxClusterRadius = maxClusterRadius;
+  }
 
-    public String getClusterPane() {
-        return clusterPane;
-    }
+  public String getClusterPane() {
+    return clusterPane;
+  }
 
-    public void setClusterPane(String clusterPane) {
-        this.clusterPane = clusterPane;
-    }
+  public void setClusterPane(String clusterPane) {
+    this.clusterPane = clusterPane;
+  }
 
-    public boolean isSpiderfyOnMaxZoom() {
-        return spiderfyOnMaxZoom;
-    }
+  public boolean isSpiderfyOnMaxZoom() {
+    return spiderfyOnMaxZoom;
+  }
 
-    public void setSpiderfyOnMaxZoom(boolean spiderfyOnMaxZoom) {
-        this.spiderfyOnMaxZoom = spiderfyOnMaxZoom;
-    }
+  public void setSpiderfyOnMaxZoom(boolean spiderfyOnMaxZoom) {
+    this.spiderfyOnMaxZoom = spiderfyOnMaxZoom;
+  }
 
-    public boolean isShowCoverageOnHover() {
-        return showCoverageOnHover;
-    }
+  public boolean isShowCoverageOnHover() {
+    return showCoverageOnHover;
+  }
 
-    public void setShowCoverageOnHover(boolean showCoverageOnHover) {
-        this.showCoverageOnHover = showCoverageOnHover;
-    }
+  public void setShowCoverageOnHover(boolean showCoverageOnHover) {
+    this.showCoverageOnHover = showCoverageOnHover;
+  }
 
-    public boolean isZoomToBoundsOnClick() {
-        return zoomToBoundsOnClick;
-    }
+  public boolean isZoomToBoundsOnClick() {
+    return zoomToBoundsOnClick;
+  }
 
-    public void setZoomToBoundsOnClick(boolean zoomToBoundsOnClick) {
-        this.zoomToBoundsOnClick = zoomToBoundsOnClick;
-    }
+  public void setZoomToBoundsOnClick(boolean zoomToBoundsOnClick) {
+    this.zoomToBoundsOnClick = zoomToBoundsOnClick;
+  }
 
-    public boolean isSingleMarkerMode() {
-        return singleMarkerMode;
-    }
+  public boolean isSingleMarkerMode() {
+    return singleMarkerMode;
+  }
 
-    public void setSingleMarkerMode(boolean singleMarkerMode) {
-        this.singleMarkerMode = singleMarkerMode;
-    }
+  public void setSingleMarkerMode(boolean singleMarkerMode) {
+    this.singleMarkerMode = singleMarkerMode;
+  }
 
-    public Integer getDisableClusteringAtZoom() {
-        return disableClusteringAtZoom;
-    }
+  public Integer getDisableClusteringAtZoom() {
+    return disableClusteringAtZoom;
+  }
 
-    public void setDisableClusteringAtZoom(Integer disableClusteringAtZoom) {
-        this.disableClusteringAtZoom = disableClusteringAtZoom;
-    }
+  public void setDisableClusteringAtZoom(Integer disableClusteringAtZoom) {
+    this.disableClusteringAtZoom = disableClusteringAtZoom;
+  }
 
-    public boolean isRemoveOutsideVisibleBounds() {
-        return removeOutsideVisibleBounds;
-    }
+  public boolean isRemoveOutsideVisibleBounds() {
+    return removeOutsideVisibleBounds;
+  }
 
-    public void setRemoveOutsideVisibleBounds(boolean removeOutsideVisibleBounds) {
-        this.removeOutsideVisibleBounds = removeOutsideVisibleBounds;
-    }
+  public void setRemoveOutsideVisibleBounds(boolean removeOutsideVisibleBounds) {
+    this.removeOutsideVisibleBounds = removeOutsideVisibleBounds;
+  }
 
-    public boolean isAnimate() {
-        return animate;
-    }
+  public boolean isAnimate() {
+    return animate;
+  }
 
-    public void setAnimate(boolean animate) {
-        this.animate = animate;
-    }
+  public void setAnimate(boolean animate) {
+    this.animate = animate;
+  }
 
-    public boolean isAnimateAddingMarkers() {
-        return animateAddingMarkers;
-    }
+  public boolean isAnimateAddingMarkers() {
+    return animateAddingMarkers;
+  }
 
-    public void setAnimateAddingMarkers(boolean animateAddingMarkers) {
-        this.animateAddingMarkers = animateAddingMarkers;
-    }
+  public void setAnimateAddingMarkers(boolean animateAddingMarkers) {
+    this.animateAddingMarkers = animateAddingMarkers;
+  }
 
-    public double getSpiderfyDistanceMultiplier() {
-        return spiderfyDistanceMultiplier;
-    }
+  public double getSpiderfyDistanceMultiplier() {
+    return spiderfyDistanceMultiplier;
+  }
 
-    public void setSpiderfyDistanceMultiplier(double spiderfyDistanceMultiplier) {
-        this.spiderfyDistanceMultiplier = spiderfyDistanceMultiplier;
-    }
+  public void setSpiderfyDistanceMultiplier(double spiderfyDistanceMultiplier) {
+    this.spiderfyDistanceMultiplier = spiderfyDistanceMultiplier;
+  }
 
-    public PathOptions getSpiderLegPolylineOptions() {
-        return spiderLegPolylineOptions;
-    }
+  public PathOptions getSpiderLegPolylineOptions() {
+    return spiderLegPolylineOptions;
+  }
 
-    public void setSpiderLegPolylineOptions(PathOptions spiderLegPolylineOptions) {
-        this.spiderLegPolylineOptions = spiderLegPolylineOptions;
-    }
+  public void setSpiderLegPolylineOptions(PathOptions spiderLegPolylineOptions) {
+    this.spiderLegPolylineOptions = spiderLegPolylineOptions;
+  }
 
-    public boolean isChunkedLoading() {
-        return chunkedLoading;
-    }
+  public boolean isChunkedLoading() {
+    return chunkedLoading;
+  }
 
-    public void setChunkedLoading(boolean chunkedLoading) {
-        this.chunkedLoading = chunkedLoading;
-    }
+  public void setChunkedLoading(boolean chunkedLoading) {
+    this.chunkedLoading = chunkedLoading;
+  }
 
-    public int getChunkInterval() {
-        return chunkInterval;
-    }
+  public int getChunkInterval() {
+    return chunkInterval;
+  }
 
-    public void setChunkInterval(int chunkInterval) {
-        this.chunkInterval = chunkInterval;
-    }
+  public void setChunkInterval(int chunkInterval) {
+    this.chunkInterval = chunkInterval;
+  }
 
-    public int getChunkDelay() {
-        return chunkDelay;
-    }
+  public int getChunkDelay() {
+    return chunkDelay;
+  }
 
-    public void setChunkDelay(int chunkDelay) {
-        this.chunkDelay = chunkDelay;
-    }
+  public void setChunkDelay(int chunkDelay) {
+    this.chunkDelay = chunkDelay;
+  }
 
-    public PathOptions getPolygonOptions() {
-        return polygonOptions;
-    }
+  public PathOptions getPolygonOptions() {
+    return polygonOptions;
+  }
 
-    public void setPolygonOptions(PathOptions polygonOptions) {
-        this.polygonOptions = polygonOptions;
-    }
+  public void setPolygonOptions(PathOptions polygonOptions) {
+    this.polygonOptions = polygonOptions;
+  }
 
 }

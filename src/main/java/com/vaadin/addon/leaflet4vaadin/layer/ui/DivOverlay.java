@@ -17,7 +17,6 @@ package com.vaadin.addon.leaflet4vaadin.layer.ui;
 import com.vaadin.addon.leaflet4vaadin.layer.Layer;
 import com.vaadin.addon.leaflet4vaadin.types.LatLng;
 import com.vaadin.addon.leaflet4vaadin.types.Point;
-
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -32,77 +31,78 @@ import java.util.concurrent.CompletableFuture;
  */
 public abstract class DivOverlay extends Layer {
 
-    private String content;
-    private String className = "";
-    private Point offset = Point.of(0, 7);
+  private String content;
+  private String className = "";
+  private Point offset = Point.of(0, 7);
 
-    protected DivOverlay(String content) {
-        this.content = content;
-    }
+  protected DivOverlay(String content) {
+    this.content = content;
+  }
 
-    /**
-     * A custom CSS class name to assign to the overlay.
-     *
-     * @return the CSS class name to assign to the overlay.
-     */
-    public String getClassName() {
-        return className;
-    }
+  /**
+   * A custom CSS class name to assign to the overlay.
+   *
+   * @return the CSS class name to assign to the overlay.
+   */
+  public String getClassName() {
+    return className;
+  }
 
-    public void setClassName(String className) {
-        this.className = className;
-    }
+  public void setClassName(String className) {
+    this.className = className;
+  }
 
-    /**
-     * The offset of the overlay position. Useful to control the anchor
-     * of the overlay when opening it on some overlays.
-     *
-     * @return the offset of the overlay position
-     */
-    public Point getOffset() {
-        return offset;
-    }
+  /**
+   * The offset of the overlay position. Useful to control the anchor of the overlay when opening it
+   * on some overlays.
+   *
+   * @return the offset of the overlay position
+   */
+  public Point getOffset() {
+    return offset;
+  }
 
-    public void setOffset(Point offset) {
-        this.offset = offset;
-    }
-
-
-    /**
-     * Returns the geographical point of popup.
-     *
-     * @return the geographical point of popup.
-     */
-    public CompletableFuture<LatLng> getLatLng() {
-        return call("getLatLng", LatLng.class);
-    }
-
-    /**
-     * Sets the geographical point where the overlay will open.
-     *
-     * @param latLng the geographical point where the overlay will open
-     */
-    public void setLatLng(LatLng latLng) {
-        executeJs("setLatLng", latLng);
-    }
+  public void setOffset(Point offset) {
+    this.offset = offset;
+  }
 
 
-    /**
-     * Returns the content of the overlay.
-     *
-     * @return the content of the overlay.
-     */
-    public String getContent() {
-        return this.content;
-    }
+  /**
+   * Returns the geographical point of popup.
+   *
+   * @return the geographical point of popup.
+   */
+  public CompletableFuture<LatLng> getLatLng() {
+    return call("getLatLng", LatLng.class);
+  }
 
-    /**
-     * Sets the HTML content of the overlay. If a function is passed the source layer will be passed to the function.
-     *
-     * @param content the content of the overlay
-     */
-    public void setContent(String content) {
-        this.content = content;
-        executeJs("setContent", content);
-    }
+  /**
+   * Sets the geographical point where the overlay will open.
+   *
+   * @param latLng the geographical point where the overlay will open
+   */
+  public void setLatLng(LatLng latLng) {
+    executeJs("setLatLng", latLng);
+  }
+
+
+  /**
+   * Returns the content of the overlay.
+   *
+   * @return the content of the overlay.
+   */
+  public String getContent() {
+    return this.content;
+  }
+
+  /**
+   * Sets the HTML content of the overlay. If a function is passed the source layer will be passed
+   * to the function.
+   *
+   * @param content the content of the overlay
+   */
+  public void setContent(String content) {
+    this.content = content;
+    executeJs("setContent", content);
+  }
 }

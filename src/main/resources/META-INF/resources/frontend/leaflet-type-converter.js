@@ -146,7 +146,7 @@ export class LeafletTypeConverter {
       });
     }
 
-    //console.log("LeafletTypeConverter - convert() result", converted);
+    console.log("LeafletTypeConverter - convert() result", converted);
     return converted;
   }
 
@@ -165,7 +165,7 @@ export class LeafletTypeConverter {
     } else if (basicType.leafletType === "DivIcon") {
       converted = this.toDivIcon(basicType);
     }
-    //console.log("LeafletTypeConverter - convertBasicType() result", converted);
+    console.log("LeafletTypeConverter - convertBasicType() result", converted);
     return converted;
   }
 
@@ -216,7 +216,7 @@ export class LeafletTypeConverter {
    * Convert the given JsonObject to Leaflet LatLng
    */
   toLatLng(latLng) {
-    return latLng ? L.latLng(latLng.lat, latLng.lng, latLng.altitude) : latLng;
+    return latLng ? L.latLng(latLng.lat, latLng.lng, latLng.alt) : latLng;
   }
 
   /**

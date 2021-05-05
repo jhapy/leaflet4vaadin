@@ -1,11 +1,11 @@
 // Copyright 2020 Gabor Kokeny and contributors
-// 
+//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
-// 
+//
 //     http://www.apache.org/licenses/LICENSE-2.0
-// 
+//
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -29,20 +29,20 @@ import com.vaadin.flow.router.Route;
 @Route(value = "controls/scale-control", layout = LeafletDemoApp.class)
 public class ScaleControlExample extends ExampleContainer {
 
-	@Override
-	protected void initDemo() {
+  @Override
+  protected void initDemo() {
 
-		MapOptions options = new DefaultMapOptions();
-		options.setCenter(new LatLng(47.070121823, 19.2041015625));
-		options.setZoom(7);
-		LeafletMap leafletMap = new LeafletMap(options);
-		leafletMap.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+    MapOptions options = new DefaultMapOptions();
+    options.setCenter(new LatLng(47.070121823, 19.2041015625));
+    options.setZoom(7);
+    LeafletMap leafletMap = new LeafletMap(options);
+    leafletMap.setBaseUrl("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
 
-		ScaleControl scaleControl = new ScaleControl();
-		scaleControl.setMaxWidth(500);
-		scaleControl.setPosition(ControlPosition.bottomleft);
-		scaleControl.addTo(leafletMap);
+    ScaleControl scaleControl = new ScaleControl();
+    scaleControl.setMaxWidth(500);
+    scaleControl.setPosition(ControlPosition.bottomleft);
+    scaleControl.addTo(leafletMap);
 
-		addToContent(leafletMap);
-	}
+    addToContent(leafletMap);
+  }
 }
